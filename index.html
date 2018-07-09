@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Gerador de Currículos on line</title>
+
+    <link href="./css/bootstrap.min.css" rel="stylesheet">
+    <link href="./css/form-validation.css" rel="stylesheet">
+    <link href="./css/jquery-confirm.min.css" rel="stylesheet">
+  </head>
+
+  <body class="bg-light">
+
+    <div class="container">
+
+      <div class="row">
+        <div class="col-md-12 order-md-1">
+          <hr class="mb-4">
+          <h4 class="mb-3">Meus Dados</h4>
+          <form class="needs-validation" novalidate>
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label for="firstName">Nome</label>
+                <input type="text" class="form-control" id="firstName" required>
+                <div class="invalid-feedback">
+                  Nome é obrigatório.
+                </div>
+              </div>
+              <div class="col-md-6 mb-3">
+                <label for="lastName">Sobrenome</label>
+                <input type="text" class="form-control" id="lastName" required>
+                <div class="invalid-feedback">
+                  Sobrenome é obrigatório.
+                </div>
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label for="address">Endereço</label>
+              <input type="text" class="form-control" id="address" required>
+              <div class="invalid-feedback">
+                  Endereço é obrigatório.
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-4 mb-3">
+                <label for="dateNasc">Data de Nescimento</label>
+                <input type="date" class="form-control" id="dateNasc" required>
+                <div class="invalid-feedback">
+                  Data de Nescimento é obrigatório.
+                </div>
+              </div>
+
+              <div class="col-md-8 mb-3">
+                <label for="email">Email <span class="text-muted">(Opcional)</span></label>
+                <input type="email" class="form-control" id="email">
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-4 mb-3">
+                <label for="state">Estado</label>
+                <select class="custom-select d-block w-100" id="state" required>
+                  <option value="">Escolher...</option>
+                  <option>Parána</option>
+                  <option>Santa Catarina</option>
+                </select>
+                <div class="invalid-feedback">                  
+                  Por favor, selecione um Estado válido.
+                </div>
+              </div>
+              <div class="col-md-5 mb-3">
+                <label for="city">Cidade</label>
+                <select class="custom-select d-block w-100" id="city" required>
+                  <option value="">Escolher...</option>
+                  <option>Pato Branco</option>
+                  <option>Francisco Beltrão</option>
+                  <option>Coronel Vivida</option>
+                  <option>Chápeco</option>
+                </select>
+                <div class="invalid-feedback">                  
+                  Por favor, selecione uma Cidade válida.
+                </div>
+              </div>
+              <div class="col-md-3 mb-3">
+                <label for="cep">CEP</label>
+                <input type="text" class="form-control" id="cep" placeholder="" required>
+                <div class="invalid-feedback">
+                  CEP é obrigatório.
+                </div>
+              </div>
+            </div>
+
+            <div id="addDetalhes">
+              <hr class="mb-4">
+              <button class="btn btn-info btn-lg btn-block" type="button" id="btnAddDetalhes">
+                <svg style="position: inherit;margin-top: 10px;" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus-circle">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <line x1="12" y1="8" x2="12" y2="16"></line>
+                  <line x1="8" y1="12" x2="16" y2="12"></line>
+                </svg>               
+              </button>
+              <hr class="mb-4">
+            </div>
+
+            <div id="Detalhes" style="display: none;">
+              <hr class="mb-4">
+              <h4 class="mb-3">Informe suas últimas Experiência de Trabalho</h4>
+
+              <div class="row">
+                <div class="col-md-5 mb-3">
+                  <label for="empresa1">Empresa</label>
+                  <input type="text" class="form-control" id="empresa1">
+                </div>
+                <div class="col-md-4 mb-3">
+                  <label for="funcao1">Função</label>
+                  <input type="text" class="form-control" id="funcao1">
+                </div>
+                <div class="col-md-3 mb-3">
+                  <label for="tempoServ1">Tempo de Serviço (Meses)</label>
+                  <input type="number" class="form-control" id="tempoServ1">
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-5 mb-3">
+                  <input type="text" class="form-control" id="empresa2">
+                </div>
+                <div class="col-md-4 mb-3">
+                  <input type="text" class="form-control" id="funcao2">
+                </div>
+                <div class="col-md-3 mb-3">
+                  <input type="number" class="form-control" id="tempoServ2">
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-5 mb-3">
+                  <input type="text" class="form-control" id="empresa3">
+                </div>
+                <div class="col-md-4 mb-3"> 
+                  <input type="text" class="form-control" id="funcao3">
+                </div>
+                <div class="col-md-3 mb-3"> 
+                  <input type="number" class="form-control" id="tempoServ3">
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-5 mb-3">
+                  <input type="text" class="form-control" id="empresa4">
+                </div>
+                <div class="col-md-4 mb-3"> 
+                  <input type="text" class="form-control" id="funcao4">
+                </div>
+                <div class="col-md-3 mb-3"> 
+                  <input type="number" class="form-control" id="tempoServ4">
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-5 mb-3">
+                  <input type="text" class="form-control" id="empresa5">
+                </div>
+                <div class="col-md-4 mb-3"> 
+                  <input type="text" class="form-control" id="funcao5">
+                </div>
+                <div class="col-md-3 mb-3"> 
+                  <input type="number" class="form-control" id="tempoServ5">
+                </div>
+              </div>
+
+              <button class="btn btn-danger btn-lg btn-block" type="button"  id="btnDetalhes">
+                <svg style="position: inherit;margin-top: 10px;" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus-circle">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <line x1="8" y1="12" x2="16" y2="12"></line>
+                </svg>               
+              </button>
+              <hr class="mb-4">
+            </div>
+
+            <button class="btn btn-success btn-lg btn-block" type="submit">Gerar Curriculo</button>
+          </form>
+        </div>
+      </div>
+
+      <footer class="my-5 pt-5 text-muted text-center text-small">
+      </footer>
+
+    </div>
+
+    <script src="./js/jquery-3.3.1.slim.min.js""></script>
+    <script src="./js/popper.min.js"></script>
+    <script src="./js/bootstrap.min.js"></script>
+    <script src="./js/holder.min.js"></script>
+    <script src="./js/FileSaver.js"></script>
+    <script src="./js/jspdf.min.js"></script>
+    <script src="./js/jquery-confirm.min.js"></script>
+    <script src="./js/script.js"></script>
+
+  </body>
+</html>
