@@ -4,76 +4,109 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <title>Gerador de Currículos on line</title>
+    <title>Gerador de Currículos</title>
 
     <link href="./css/bootstrap.min.css" rel="stylesheet">
     <link href="./css/form-validation.css" rel="stylesheet">
     <link href="./css/jquery-confirm.min.css" rel="stylesheet">
+    <link href="./css/style.css" rel="stylesheet">
   </head>
 
   <body class="bg-light">
 
     <div class="container">
 
+      <div class="row text-center justify-content-center">
+          <div class="col-12 col-md-10 col-lg-8">
+              <div class="space-lg pb-3">
+                  <h1 style="text-align: center;margin-top: 50px;">Gerador de Currículo Online</h1>
+              </div>
+          </div>
+      </div>
+
       <div class="row">
         <div class="col-md-12 order-md-1">
           <hr class="mb-4">
+
+          <!-- ----------------------------------------------- -->
+          <!--                   MEUS DADOS                    -->
+          <!-- ----------------------------------------------- -->
           <h4 class="mb-3">Meus Dados</h4>
           <form class="needs-validation" novalidate>
             <div class="row">
               <div class="col-md-6 mb-3">
-                <label for="firstName">Nome</label>
+                <label for="firstName">Nome:</label>
                 <input type="text" class="form-control" id="firstName" required>
-                <div class="invalid-feedback">
-                  Nome é obrigatório.
-                </div>
               </div>
               <div class="col-md-6 mb-3">
-                <label for="lastName">Sobrenome</label>
+                <label for="lastName">Sobrenome:</label>
                 <input type="text" class="form-control" id="lastName" required>
-                <div class="invalid-feedback">
-                  Sobrenome é obrigatório.
-                </div>
-              </div>
-            </div>
-
-            <div class="mb-3">
-              <label for="address">Endereço</label>
-              <input type="text" class="form-control" id="address" required>
-              <div class="invalid-feedback">
-                  Endereço é obrigatório.
               </div>
             </div>
 
             <div class="row">
+              <div class="col-md-3 mb-3">
+                <label for="fone">Telefone <span class="text-muted">(Opcional)</span>:</label>
+                <input type="fone" class="form-control" id="fone">
+              </div>
+              <div class="col-md-3 mb-3">
+                <label for="sexo">Sexo:</label>
+                <select class="custom-select d-block w-100" id="sexo" required>
+                  <option value="">Escolher...</option>
+                  <option>Masculino</option>
+                  <option>Femenino</option>
+                </select>
+              </div>
+              <div class="col-md-3 mb-3">
+                <label for="estcivil">Estado Civil:</label>
+                <select class="custom-select d-block w-100" id="estcivil" required>
+                  <option value="">Escolher...</option>
+                  <option>Solteiro(a)</option>
+                  <option>Casado(a)</option>
+                  <option>União Estável</option>
+                  <option>Separado(a)</option>
+                  <option>Divorciado(a)</option>
+                  <option>Viúvo(a)</option>
+                </select>
+              </div>
+              <div class="col-md-3 mb-3">
+                <label for="filhos">Tem Filho(s)? <span class="text-muted">(Opcional)</span>:</label>
+                <select class="custom-select d-block w-100" id="filhos">
+                  <option value="">Escolher...</option>
+                  <option>Sim</option>
+                  <option>Não</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label for="address">Endereço:</label>
+              <input type="text" class="form-control" id="address" required>
+            </div>
+
+            <div class="row">
               <div class="col-md-4 mb-3">
-                <label for="dateNasc">Data de Nescimento</label>
+                <label for="dateNasc">Data de Nescimento:</label>
                 <input type="date" class="form-control" id="dateNasc" required>
-                <div class="invalid-feedback">
-                  Data de Nescimento é obrigatório.
-                </div>
               </div>
 
               <div class="col-md-8 mb-3">
-                <label for="email">Email <span class="text-muted">(Opcional)</span></label>
+                <label for="email">Email <span class="text-muted">(Opcional)</span>:</label>
                 <input type="email" class="form-control" id="email">
               </div>
             </div>
 
             <div class="row">
               <div class="col-md-4 mb-3">
-                <label for="state">Estado</label>
+                <label for="state">Estado:</label>
                 <select class="custom-select d-block w-100" id="state" required>
                   <option value="">Escolher...</option>
                   <option>Parána</option>
                   <option>Santa Catarina</option>
                 </select>
-                <div class="invalid-feedback">                  
-                  Por favor, selecione um Estado válido.
-                </div>
               </div>
               <div class="col-md-5 mb-3">
-                <label for="city">Cidade</label>
+                <label for="city">Cidade:</label>
                 <select class="custom-select d-block w-100" id="city" required>
                   <option value="">Escolher...</option>
                   <option>Pato Branco</option>
@@ -81,12 +114,9 @@
                   <option>Coronel Vivida</option>
                   <option>Chápeco</option>
                 </select>
-                <div class="invalid-feedback">                  
-                  Por favor, selecione uma Cidade válida.
-                </div>
               </div>
               <div class="col-md-3 mb-3">
-                <label for="cep">CEP</label>
+                <label for="cep">CEP:</label>
                 <input type="text" class="form-control" id="cep" placeholder="" required>
                 <div class="invalid-feedback">
                   CEP é obrigatório.
@@ -94,95 +124,266 @@
               </div>
             </div>
 
-            <div id="addDetalhes">
-              <hr class="mb-4">
-              <button class="btn btn-info btn-lg btn-block" type="button" id="btnAddDetalhes">
-                <svg style="position: inherit;margin-top: 10px;" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus-circle">
-                  <circle cx="12" cy="12" r="10"></circle>
-                  <line x1="12" y1="8" x2="12" y2="16"></line>
-                  <line x1="8" y1="12" x2="16" y2="12"></line>
-                </svg>               
-              </button>
-              <hr class="mb-4">
+            <!-- ----------------------------------------------- -->
+            <!--                     OBJETIVOS                   -->
+            <!-- ----------------------------------------------- -->
+            <hr class="mb-4">
+            <h4 class="mb-3">Objetivo</h4>
+
+            <div class="mb-3">
+              <input type="text" class="form-control" id="objetivo" required>
             </div>
 
-            <div id="Detalhes" style="display: none;">
-              <hr class="mb-4">
-              <h4 class="mb-3">Informe suas últimas Experiência de Trabalho</h4>
 
-              <div class="row">
-                <div class="col-md-5 mb-3">
-                  <label for="empresa1">Empresa</label>
-                  <input type="text" class="form-control" id="empresa1">
-                </div>
-                <div class="col-md-4 mb-3">
-                  <label for="funcao1">Função</label>
-                  <input type="text" class="form-control" id="funcao1">
-                </div>
-                <div class="col-md-3 mb-3">
-                  <label for="tempoServ1">Tempo de Serviço (Meses)</label>
-                  <input type="number" class="form-control" id="tempoServ1">
-                </div>
-              </div>
+            <!-- ----------------------------------------------- -->
+            <!--              FORMAÇÃO ACADÊMICA                 -->
+            <!-- ----------------------------------------------- -->
+            <hr class="mb-4">
+            <h4 class="mb-3">Formação Acadêmica</h4>
 
-              <div class="row">
-                <div class="col-md-5 mb-3">
-                  <input type="text" class="form-control" id="empresa2">
-                </div>
-                <div class="col-md-4 mb-3">
-                  <input type="text" class="form-control" id="funcao2">
-                </div>
-                <div class="col-md-3 mb-3">
-                  <input type="number" class="form-control" id="tempoServ2">
-                </div>
-              </div>
-
-              <div class="row">
-                <div class="col-md-5 mb-3">
-                  <input type="text" class="form-control" id="empresa3">
-                </div>
-                <div class="col-md-4 mb-3"> 
-                  <input type="text" class="form-control" id="funcao3">
-                </div>
-                <div class="col-md-3 mb-3"> 
-                  <input type="number" class="form-control" id="tempoServ3">
-                </div>
-              </div>
-
-              <div class="row">
-                <div class="col-md-5 mb-3">
-                  <input type="text" class="form-control" id="empresa4">
-                </div>
-                <div class="col-md-4 mb-3"> 
-                  <input type="text" class="form-control" id="funcao4">
-                </div>
-                <div class="col-md-3 mb-3"> 
-                  <input type="number" class="form-control" id="tempoServ4">
-                </div>
-              </div>
-
-              <div class="row">
-                <div class="col-md-5 mb-3">
-                  <input type="text" class="form-control" id="empresa5">
-                </div>
-                <div class="col-md-4 mb-3"> 
-                  <input type="text" class="form-control" id="funcao5">
-                </div>
-                <div class="col-md-3 mb-3"> 
-                  <input type="number" class="form-control" id="tempoServ5">
-                </div>
-              </div>
-
-              <button class="btn btn-danger btn-lg btn-block" type="button"  id="btnDetalhes">
-                <svg style="position: inherit;margin-top: 10px;" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus-circle">
-                  <circle cx="12" cy="12" r="10"></circle>
-                  <line x1="8" y1="12" x2="16" y2="12"></line>
-                </svg>               
-              </button>
-              <hr class="mb-4">
+            <div class="mb-3">
+              <label for="curso">Curso:</label>
+              <input type="text" class="form-control" id="curso">
             </div>
 
-            <button class="btn btn-success btn-lg btn-block" type="submit">Gerar Curriculo .PDF</button>
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label for="inst">Instituição:</label>
+                <input type="text" class="form-control" id="inst">
+              </div>
+
+              <div class="col-md-3 mb-3">
+                <label for="anocurso">Situação:</label>
+                <select class="custom-select d-block w-100" id="anocurso">
+                  <option value="">Escolher...</option>
+                  <option>Concluído em:</option>
+                  <option>Previsão de conclusão em:</option>
+                </select>
+              </div>
+
+              <div class="col-md-3 mb-3">
+                <label for="anofim">Ano:</label>
+                <input type="number" class="form-control" id="anofim">
+              </div>
+            </div>
+
+            <div>
+              <img src="img/icone-mais.png" class="imgMais" height="15" width="16"> 
+              <a href="javascript:void(0)" id="linkMais1">Adicionar outro curso</a>
+            </div>
+
+            <div class="row" id="formacao2" style="display: none">
+              <div class="col-md-12 mb-3">
+                <label for="curso2">Curso:</label>
+                <input type="text" class="form-control" id="curso2">
+              </div>
+
+              <div class="col-md-6 mb-3">
+                <label for="inst2">Instituição:</label>
+                <input type="text" class="form-control" id="inst2">
+              </div>
+
+              <div class="col-md-3 mb-3">
+                <label for="anocurso2">Situação:</label>
+                <select class="custom-select d-block w-100" id="anocurso2">
+                  <option value="">Escolher...</option>
+                  <option>Concluído em:</option>
+                  <option>Previsão de conclusão em:</option>
+                </select>
+              </div>
+
+              <div class="col-md-3 mb-3">
+                <label for="anofim2">Ano:</label>
+                <input type="number" class="form-control" id="anofim2">
+              </div>           
+
+              <div class="col-md-12 mb-3">
+                <img src="img/icone-mais.png" class="imgMais" height="15" width="16"> 
+                <a href="javascript:void(0)" id="linkMais2">Adicionar outro curso</a>
+              </div>
+            </div>  
+
+            <div class="row" id="formacao3" style="display: none">
+              <div class="col-md-12 mb-3">
+                <label for="curso3">Curso:</label>
+                <input type="text" class="form-control" id="curso3">
+              </div>
+
+              <div class="col-md-6 mb-3">
+                <label for="inst3">Instituição:</label>
+                <input type="text" class="form-control" id="inst3">
+              </div>
+
+              <div class="col-md-3 mb-3">
+                <label for="anocurso3">Situação:</label>
+                <select class="custom-select d-block w-100" id="anocurso3">
+                  <option value="">Escolher...</option>
+                  <option>Concluído em:</option>
+                  <option>Previsão de conclusão em:</option>
+                </select>
+              </div>
+
+              <div class="col-md-3 mb-3">
+                <label for="anofim3">Ano:</label>
+                <input type="number" class="form-control" id="anofim3">
+              </div>
+            </div>  
+
+            <!-- ----------------------------------------------- -->
+            <!--            EXPERIÊNCIA PROFISSIONAL             -->
+            <!-- ----------------------------------------------- -->
+            <hr class="mb-4">
+            <h4 class="mb-3">Ultímas Experiências Profissionais</h4>
+
+            <div class="row">
+              <div class="col-md-4 mb-3">
+                <label for="expempresa">Empresa:</label>
+                <input type="text" class="form-control" id="expempresa">
+              </div>
+
+              <div class="col-md-2 mb-3">
+                <label for="expanoent">Ano de Entrada:</label>
+                <input type="number" class="form-control" id="expanoent">
+              </div>
+
+              <div class="col-md-2 mb-3">
+                <label for="expanosai">Ano de Saída:</label>
+                <input type="number" class="form-control" id="expanosai">
+              </div>
+
+              <div class="col-md-4 mb-3">
+                <label for="expfuncao">Função:</label>
+                <input type="text" class="form-control" id="expfuncao">
+              </div>
+
+              <div class="col-md-12 mb-3">
+                <label for="expdetalhe">Detalhes:</label>
+                <input type="text" class="form-control" id="expdetalhe">
+              </div>
+
+              <div class="col-md-12 mb-3">
+                <img src="img/icone-mais.png" class="imgMais" height="15" width="16"> 
+                <a href="javascript:void(0)" id="linkMaisExp1">Adicionar outra experiência</a>
+              </div>
+
+            </div>
+
+            <div class="row" id="experiencia2" style="display: none">
+              <div class="col-md-4 mb-3">
+                <label for="expempresa2">Empresa:</label>
+                <input type="text" class="form-control" id="expempresa2">
+              </div>
+
+              <div class="col-md-2 mb-3">
+                <label for="expanoent2">Ano de Entrada:</label>
+                <input type="number" class="form-control" id="expanoent2">
+              </div>
+
+              <div class="col-md-2 mb-3">
+                <label for="expanosai2">Ano de Saída:</label>
+                <input type="number" class="form-control" id="expanosai2">
+              </div>
+
+              <div class="col-md-4 mb-3">
+                <label for="expfuncao2">Função:</label>
+                <input type="text" class="form-control" id="expfuncao2">
+              </div>
+
+              <div class="col-md-12 mb-3">
+                <label for="expdetalhe2">Detalhes:</label>
+                <input type="text" class="form-control" id="expdetalhe2">
+              </div>
+
+              <div class="col-md-12 mb-3">
+                <img src="img/icone-mais.png" class="imgMais" height="15" width="16"> 
+                <a href="javascript:void(0)" id="linkMaisExp2">Adicionar outra experiência</a>
+              </div>
+            </div>           
+
+            <div class="row" id="experiencia3" style="display: none">
+              <div class="col-md-4 mb-3">
+                <label for="expempresa3">Empresa:</label>
+                <input type="text" class="form-control" id="expempresa3">
+              </div>
+
+              <div class="col-md-2 mb-3">
+                <label for="expanoent3">Ano de Entrada:</label>
+                <input type="number" class="form-control" id="expanoent3">
+              </div>
+
+              <div class="col-md-2 mb-3">
+                <label for="expanosai3">Ano de Saída:</label>
+                <input type="number" class="form-control" id="expanosai3">
+              </div>
+
+              <div class="col-md-4 mb-3">
+                <label for="expfuncao3">Função:</label>
+                <input type="text" class="form-control" id="expfuncao3">
+              </div>
+
+              <div class="col-md-12 mb-3">
+                <label for="expdetalhe3">Detalhes:</label>
+                <input type="text" class="form-control" id="expdetalhe3">
+              </div>
+            </div>  
+
+            <!-- ----------------------------------------------- -->
+            <!--                 QUALIFICAÇÕES                   -->
+            <!-- ----------------------------------------------- --> 
+            <hr class="mb-4">
+            <h4 class="mb-3">Qualificações Profissionais</h4>
+
+            <div class="mb-3">
+              <input type="text" class="form-control" id="qualificacao">
+            </div>
+
+            <div>
+              <img src="img/icone-mais.png" class="imgMais" height="15" width="16"> 
+              <a href="javascript:void(0)" id="linkMaisQualificacao1">Adicionar outra qualificação</a>
+            </div>
+
+            <div class="row" id="dqualificacao2" style="display: none">
+              <div class="col-md-12 mb-3">
+                <input type="text" class="form-control" id="qualificacao2">
+              </div>
+
+              <div class="col-md-12 mb-3">
+                <img src="img/icone-mais.png" class="imgMais" height="15" width="16"> 
+                <a href="javascript:void(0)" id="linkMaisQualificacao2">Adicionar outra qualificação</a>
+              </div>
+            </div>
+
+            <div class="row" id="dqualificacao3" style="display: none">
+              <div class="col-md-12 mb-3">
+                <input type="text" class="form-control" id="qualificacao3">
+              </div>
+
+              <div class="col-md-12 mb-3">
+                <img src="img/icone-mais.png" class="imgMais" height="15" width="16"> 
+                <a href="javascript:void(0)" id="linkMaisQualificacao3">Adicionar outra qualificação</a>
+              </div>
+            </div>
+
+            <div class="row" id="dqualificacao4" style="display: none">
+              <div class="col-md-12 mb-3">
+                <input type="text" class="form-control" id="qualificacao4">
+              </div>
+
+              <div class="col-md-12 mb-3">
+                <img src="img/icone-mais.png" class="imgMais" height="15" width="16"> 
+                <a href="javascript:void(0)" id="linkMaisQualificacao4">Adicionar outra qualificação</a>
+              </div>
+            </div>
+
+            <div class="row" id="dqualificacao5" style="display: none">
+              <div class="col-md-12 mb-3">
+                <input type="text" class="form-control" id="qualificacao5">
+              </div>
+            </div>
+
+            <hr class="mb-4">
+
+            <button class="btn btn-success btn-lg btn-block" type="submit">Gerar meu Currículo</button>
           </form>
         </div>
       </div>

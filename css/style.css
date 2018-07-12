@@ -1,0 +1,16 @@
+.imgMais {
+	vertical-align: middle; 
+	margin-right: 5px;
+	margin-bottom: 4px;
+}
+
+#linkMaisExp1, #linkMaisExp2,
+#linkMais1, #linkMais2,
+#linkMaisQualificacao1,
+#linkMaisQualificacao2,
+#linkMaisQualificacao3,
+#linkMaisQualificacao4{
+	color: #00b3ef;
+	text-decoration: none;
+	background-color: transparent;
+}

@@ -16,14 +16,45 @@
 	}, false);
 })();
 
-$("#btnAddDetalhes").click(function(){
-    $("#addDetalhes").hide();
-    $("#Detalhes").show();
+$("#linkMais1").click(function(){
+    $('#formacao2').css('display', 'flex');
+    $(this).parent().remove();
 });
 
-$("#btnDetalhes").click(function(){
-    $("#Detalhes").hide();
-    $("#addDetalhes").show();
+$("#linkMais2").click(function(){
+    $('#formacao3').css('display', 'flex');
+    $(this).parent().remove();
+});
+
+$("#linkMaisExp1").click(function(){
+    $('#experiencia2').css('display', 'flex');
+    $(this).parent().remove();
+});
+
+$("#linkMaisExp2").click(function(){
+    $('#experiencia3').css('display', 'flex');
+    $(this).parent().remove();
+});
+
+
+$("#linkMaisQualificacao1").click(function(){
+    $('#dqualificacao2').css('display', 'flex');
+    $(this).parent().remove();
+});
+
+$("#linkMaisQualificacao2").click(function(){
+    $('#dqualificacao3').css('display', 'flex');
+    $(this).parent().remove();
+});
+
+$("#linkMaisQualificacao3").click(function(){
+    $('#dqualificacao4').css('display', 'flex');
+    $(this).parent().remove();
+});
+
+$("#linkMaisQualificacao4").click(function(){
+    $('#dqualificacao5').css('display', 'flex');
+    $(this).parent().remove();
 });
 
 $("form").submit(function( event ) {
@@ -53,11 +84,15 @@ $("form").submit(function( event ) {
   	});
 });
 
-function save_to_txt(){
+function getDados(){
 
   	var txtData = 
   		"Nome: "+$("#firstName").val()+
         "\r\nSobrenome: "+$("#lastName").val()+
+        "\r\nTelefone: "+$("#fone").val()+
+        "\r\nSexo: "+$("#sexo").val()+
+        "\r\nEstado Civil: "+$("#estcivil").val()+
+        "\r\nTem Filho(s)?: "+$("#filhos").val()+
         "\r\nEndereço: "+$("#address").val()+
         "\r\nData de Nescimento: "+$("#dateNasc").val()+
         "\r\nEmail: "+$("#email").val()+
@@ -66,72 +101,80 @@ function save_to_txt(){
         "\r\nCEP: "+$("#cep").val()+
         "\r\n"+
         "\r\n=========================================="+
-        "\r\nExperiência de Trabalho"+
+        "\r\nObjetivo"+
         "\r\n=========================================="+
         "\r\n"+
-        "\r\nEmpresa ( 1 ): "+($("#empresa1").val() == ""?"Não Informado":$("#empresa1").val())+
-        "\r\nFunção ( 1 ): "+($("#funcao1").val() == ""?"Não Informado":$("#funcao1").val())+
-        "\r\nTempo de Serviço ( 1 ): "+($("#tempoServ1").val() == ""?"Não Informado":$("#tempoServ1").val())+
+        "\r\n"+$("#objetivo").val()+
         "\r\n"+
-        "\r\nEmpresa ( 2 ): "+($("#empresa2").val() == ""?"Não Informado":$("#empresa2").val())+
-        "\r\nFunção ( 2 ): "+($("#funcao2").val() == ""?"Não Informado":$("#funcao2").val())+
-        "\r\nTempo de Serviço ( 2 ): "+($("#tempoServ2").val() == ""?"Não Informado":$("#tempoServ2").val())+
+        "\r\n=========================================="+
+        "\r\nFormação Acadêmica"+
+        "\r\n=========================================="+
         "\r\n"+
-        "\r\nEmpresa ( 3 ): "+($("#empresa3").val() == ""?"Não Informado":$("#empresa3").val())+
-        "\r\nFunção ( 3 ): "+($("#funcao3").val() == ""?"Não Informado":$("#funcao3").val())+
-        "\r\nTempo de Serviço ( 3 ): "+($("#tempoServ3").val() == ""?"Não Informado":$("#tempoServ3").val())+
-        "\r\n"+
-        "\r\nEmpresa ( 4 ): "+($("#empresa4").val() == ""?"Não Informado":$("#empresa4").val())+
-        "\r\nFunção ( 4 ): "+($("#funcao4").val() == ""?"Não Informado":$("#funcao4").val())+
-        "\r\nTempo de Serviço ( 4 ): "+($("#tempoServ4").val() == ""?"Não Informado":$("#tempoServ4").val())+
-        "\r\n"+
-        "\r\nEmpresa ( 5 ): "+($("#empresa5").val() == ""?"Não Informado":$("#empresa5").val())+
-        "\r\nFunção ( 5 ): "+($("#funcao5").val() == ""?"Não Informado":$("#funcao5").val())+
-        "\r\nTempo de Serviço ( 5 ): "+($("#tempoServ5").val() == ""?"Não Informado":$("#tempoServ5").val());
+        "\r\nCurso: "+($("#curso").val() == ""?"Não Informado":$("#curso").val())+
+        "\r\nInstituição: "+($("#inst").val() == ""?"Não Informado":$("#inst").val())+
+        "\r\nSituação: "+($("#anocurso").val() == ""?"Não Informado":$("#anocurso").val())+
+        ($("#anofim").val() == ""?"Não Informado":$("#anofim").val())+ 
 
-  	var blob = new Blob([txtData], {type: "text/plain;charset=utf-8"});
-  	saveAs(blob, "[ Currículo ] "+$("#firstName").val()+ " "+$("#lastName").val()+".txt");
+        "\r\n"+($("#curso2").val() == ""?"":"\r\n"+getCurso(2))+ 
+        "\r\n"+($("#curso3").val() == ""?"":"\r\n"+getCurso(3))+ 
 
+        "\r\n"+
+        "\r\n=========================================="+
+        "\r\nUltímas Experiências Profissionais"+
+        "\r\n=========================================="+
+        "\r\n"+
+        "\r\nEmpresa: "+($("#expempresa").val() == ""?"Não Informado":$("#expempresa").val())+
+        "\r\nAno de Entrada: "+($("#expanoent").val() == ""?"Não Informado":$("#expanoent").val())+
+        "\r\nAno de Saída: "+($("#expanosai").val() == ""?"Não Informado":$("#expanosai").val())+
+        "\r\nFunção: "+($("#expfuncao").val() == ""?"Não Informado":$("#expfuncao").val())+
+        "\r\nDetalhes: "+($("#expdetalhe").val() == ""?"Não Informado":$("#expdetalhe").val())+
+
+        "\r\n"+($("#expempresa2").val() == ""?"":"\r\n"+getExperiencia(2))+ 
+        "\r\n"+($("#expempresa3").val() == ""?"":"\r\n"+getExperiencia(3))+ 
+
+        "\r\n"+
+        "\r\n=========================================="+
+        "\r\nQualificações Profissionais"+
+        "\r\n=========================================="+
+        "\r\n"+
+        "\r\n"+($("#qualificacao").val() == ""?"Não Informado":$("#qualificacao").val())+
+        ($("#qualificacao2").val() == ""?"":"\r\n"+$("#qualificacao2").val())+
+        ($("#qualificacao3").val() == ""?"":"\r\n"+$("#qualificacao3").val())+
+        ($("#qualificacao4").val() == ""?"":"\r\n"+$("#qualificacao4").val())+
+        ($("#qualificacao5").val() == ""?"":"\r\n"+$("#qualificacao5").val());
+
+    return txtData;
+}
+
+function getCurso(index){
+    var curso =  
+        "\r\nCurso ( "+index+" ): "+($("#curso"+index).val() == ""?"Não Informado":$("#curso"+index).val())+
+        "\r\nInstituição ( "+index+" ): "+($("#inst"+index).val() == ""?"Não Informado":$("#inst"+index).val())+
+        "\r\nSituação ( "+index+" ): "+($("#anocurso"+index).val() == ""?"Não Informado":$("#anocurso"+index).val())+
+        ($("#anofim"+index).val() == ""?"Não Informado":$("#anofim"+index).val());
+    return curso;
+}
+
+function getExperiencia(index){
+    var exeriencia =  
+        "\r\nEmpresa ( "+index+" ): "+($("#expempresa"+index).val() == ""?"Não Informado":$("#expempresa"+index).val())+
+        "\r\nAno de Entrada ( "+index+" ): "+($("#expanoent"+index).val() == ""?"Não Informado":$("#expanoent"+index).val())+
+        "\r\nAno de Saída ( "+index+" ): "+($("#expanosai"+index).val() == ""?"Não Informado":$("#expanosai"+index).val())+
+        "\r\nFunção ( "+index+" ): "+($("#expfuncao"+index).val() == ""?"Não Informado":$("#expfuncao"+index).val())+
+        "\r\nDetalhes ( "+index+" ): "+($("#expdetalhe"+index).val() == ""?"Não Informado":$("#expdetalhe"+index).val());
+    return exeriencia;
+}
+
+
+function save_to_txt(){
+    var blob = new Blob([getDados()], {type: "text/plain;charset=utf-8"});
+    saveAs(blob, "[ Currículo ] "+$("#firstName").val()+ " "+$("#lastName").val()+".txt");
 }
 
 function save_to_PDF(){
 
-  	var txtData = 
-  		"Nome: "+$("#firstName").val()+
-        "\r\nSobrenome: "+$("#lastName").val()+
-        "\r\nEndereço: "+$("#address").val()+
-        "\r\nData de Nescimento: "+$("#dateNasc").val()+
-        "\r\nEmail: "+$("#email").val()+
-        "\r\nEstado: "+$("#state").val()+
-        "\r\nCidade: "+$("#city").val()+
-        "\r\nCEP: "+$("#cep").val()+
-        "\r\n"+
-        "\r\n=========================================="+
-        "\r\nExperiência de Trabalho"+
-        "\r\n=========================================="+
-        "\r\n"+
-        "\r\nEmpresa ( 1 ): "+($("#empresa1").val() == ""?"Não Informado":$("#empresa1").val())+
-        "\r\nFunção ( 1 ): "+($("#funcao1").val() == ""?"Não Informado":$("#funcao1").val())+
-        "\r\nTempo de Serviço ( 1 ): "+($("#tempoServ1").val() == ""?"Não Informado":$("#tempoServ1").val())+
-        "\r\n"+
-        "\r\nEmpresa ( 2 ): "+($("#empresa2").val() == ""?"Não Informado":$("#empresa2").val())+
-        "\r\nFunção ( 2 ): "+($("#funcao2").val() == ""?"Não Informado":$("#funcao2").val())+
-        "\r\nTempo de Serviço ( 2 ): "+($("#tempoServ2").val() == ""?"Não Informado":$("#tempoServ2").val())+
-        "\r\n"+
-        "\r\nEmpresa ( 3 ): "+($("#empresa3").val() == ""?"Não Informado":$("#empresa3").val())+
-        "\r\nFunção ( 3 ): "+($("#funcao3").val() == ""?"Não Informado":$("#funcao3").val())+
-        "\r\nTempo de Serviço ( 3 ): "+($("#tempoServ3").val() == ""?"Não Informado":$("#tempoServ3").val())+
-        "\r\n"+
-        "\r\nEmpresa ( 4 ): "+($("#empresa4").val() == ""?"Não Informado":$("#empresa4").val())+
-        "\r\nFunção ( 4 ): "+($("#funcao4").val() == ""?"Não Informado":$("#funcao4").val())+
-        "\r\nTempo de Serviço ( 4 ): "+($("#tempoServ4").val() == ""?"Não Informado":$("#tempoServ4").val())+
-        "\r\n"+
-        "\r\nEmpresa ( 5 ): "+($("#empresa5").val() == ""?"Não Informado":$("#empresa5").val())+
-        "\r\nFunção ( 5 ): "+($("#funcao5").val() == ""?"Não Informado":$("#funcao5").val())+
-        "\r\nTempo de Serviço ( 5 ): "+($("#tempoServ5").val() == ""?"Não Informado":$("#tempoServ5").val());
-
   	var doc = new jsPDF();
-	doc.text(txtData, 10, 10)
+	doc.text(getDados(), 10, 10)
 	doc.save('[ Currículo ] '+$("#firstName").val()+ " "+$("#lastName").val()+'.pdf');
 
 }
