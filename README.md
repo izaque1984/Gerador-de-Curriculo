@@ -11,7 +11,7 @@ Tecnologias utilizadas
 > Bootstrap;
 
 Atividade Prática 
-Curso: Gestao da Tecnologia da Informacao
+Curso: Gestao da Tecnologia da Informacao<
 Temática: HTML, CSS, JS + jQuery, PHP, Git 
 Disciplina: Fundamentos de Programação para Internet 
 Academico: Izaque Luiz de Castro
